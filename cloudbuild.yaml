@@ -11,5 +11,4 @@ options:
   # Usar el bucket de logs que has creado
   logs_bucket: gs://logs-mercado-gaucho-001  # Reemplaza con tu nombre de bucket
 
-images:
-  - 'gcr.io/$PROJECT_ID/mercado-gaucho'  # Reemplaza con el nombre de tu imagen Docker (si la usas)
+# No se especifica imagen ya que no usas Docker
