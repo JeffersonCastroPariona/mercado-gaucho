@@ -1,11 +1,14 @@
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
+  # Paso 1: Usar una imagen de Node.js 20 (compatible con Vite)
+  - name: 'node:20'  # Usamos la imagen oficial de Node.js 20
+    args: ['npm', 'install']
 
-  - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'build']
+  # Paso 2: Ejecutar la construcción con la versión compatible de Node.js
+  - name: 'node:20'
+    args: ['npm', 'run', 'build']
 
 options:
-  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET  # Usar un bucket regional para logs
+  logging: CLOUD_LOGGING_ONLY  # O usa REGIONAL_USER_OWNED_BUCKET si prefieres logs en un bucket
 
-# No es necesario especificar el nombre del bucket explícitamente
+images:
+  - 'gcr.io/$PROJECT_ID/mercado-gaucho'  # Si estás usando Docker
