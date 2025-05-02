@@ -1,5 +1,8 @@
 options:
-  logs_bucket: gs://[logs-mercado-gaucho-001]
+  # Usa Google Cloud Logging para los logs (sin bucket)
+  logging: CLOUD_LOGGING_ONLY
+  # O usa REGIONAL_USER_OWNED_BUCKET si prefieres usar un bucket regional para logs
+  # default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
 
 steps:
   - name: 'gcr.io/cloud-builders/npm'
