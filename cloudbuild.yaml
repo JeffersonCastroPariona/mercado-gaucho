@@ -1,11 +1,15 @@
 steps:
+  # Paso 1: Instalar dependencias de npm
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
+
+  # Paso 2: Ejecutar la compilación
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
 
 options:
-  logs_bucket: gs://[logs-mercado-gaucho-001]  # Reemplaza con el nombre de tu bucket
+  # Usar el bucket de logs que has creado
+  logs_bucket: gs://logs-mercado-gaucho-001  # Reemplaza con tu nombre de bucket
 
 images:
-  - 'gcr.io/$PROJECT_ID/mercado-gaucho'
+  - 'gcr.io/$PROJECT_ID/mercado-gaucho'  # Reemplaza con el nombre de tu imagen Docker (si la usas)
