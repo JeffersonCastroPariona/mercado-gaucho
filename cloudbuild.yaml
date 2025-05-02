@@ -10,5 +10,3 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY  # O usa REGIONAL_USER_OWNED_BUCKET si prefieres logs en un bucket
 
-images:
-  - 'gcr.io/$PROJECT_ID/mercado-gaucho'  # Si estás usando Docker
