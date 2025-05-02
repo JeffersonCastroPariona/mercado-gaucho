@@ -1,14 +1,16 @@
-options:
-  # Usa Google Cloud Logging para los logs (sin bucket)
-  logging: CLOUD_LOGGING_ONLY
-  # O usa REGIONAL_USER_OWNED_BUCKET si prefieres usar un bucket regional para logs
-  # default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
-
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
+  
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
+    # Establecer permisos de ejecución para el comando vite
+    entrypoint: /bin/sh
+    args:
+      - '-c'
+      - |
+        chmod +x node_modules/.bin/vite
+        npm run build
 
 images:
-  - 'gcr.io/$PROJECT_ID/my-app'
+  - 'gcr.io/$PROJECT_ID/mercado-gaucho'
