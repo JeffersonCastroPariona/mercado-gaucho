@@ -1,14 +1,11 @@
 steps:
-  # Paso 1: Instalar dependencias de npm
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
 
-  # Paso 2: Ejecutar la compilación
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
 
 options:
-  # Usar el bucket de logs que has creado
-  logs_bucket: gs://logs-mercado-gaucho-001  # Reemplaza con tu nombre de bucket
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET  # Usar un bucket regional para logs
 
-# No se especifica imagen ya que no usas Docker
+# No es necesario especificar el nombre del bucket explícitamente
