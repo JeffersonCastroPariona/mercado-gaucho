@@ -1,11 +1,16 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
+
+  # Verificar si 'vite' se instala correctamente
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
-
-options:
-  logging: CLOUD_LOGGING_ONLY
+    entrypoint: /bin/bash
+    args:
+      - '-c'
+      - |
+        chmod +x node_modules/.bin/vite  # Dar permisos de ejecución al binario
+        npm run build  # Ejecutar la construcción con permisos adecuados
 
 images:
-  - 'gcr.io/$PROJECT_ID/my-app'
+  - 'gcr.io/$PROJECT_ID/mercado-gaucho'
