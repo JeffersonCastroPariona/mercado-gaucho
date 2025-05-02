@@ -1,7 +1,11 @@
+options:
+  logs_bucket: gs://[logs-mercado-gaucho-001]
+
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
+
 images:
   - 'gcr.io/$PROJECT_ID/my-app'
