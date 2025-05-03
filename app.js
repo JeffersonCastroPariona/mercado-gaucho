@@ -7,9 +7,9 @@ app.use(express.json()); // Para poder parsear el cuerpo de las peticiones como 
 // Configuración de la conexión a la base de datos
 const db = mysql.createConnection({
   host: 'IP_DE_LA_VM_DE_DATOS',
-  user: 'tu_usuario_mysql',
-  password: 'tu_contraseña_mysql',
-  database: 'nombre_base_de_datos'
+  user: 'mercadoadmin',
+  password: 'Gaucho2025!',
+  database: 'ecommerce'
 });
 
 db.connect((err) => {
